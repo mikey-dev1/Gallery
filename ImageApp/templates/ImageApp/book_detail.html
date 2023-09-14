@@ -1,0 +1,59 @@
+{% extends 'ImageApp/index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css\book-detail.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block content %}
+
+
+<div class="book-wrapper">
+    <div class="book-container"> 
+        <div class="image-card">
+            <img src="{{book.image.url}}" alt="">
+        </div>
+    
+        <div class="card-details">
+            <div class="card-items">
+                <h2 class="title">{{book.title}}</h2>
+                <div class="ratings">
+                   <span>
+                    <i class="fa-solid fa-star"></i>
+                    
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                   </span>
+                     <span><a href="">(10 verified ratings)</a></span>
+                </div>
+            </div>
+            <div class="card-box">
+                <div class="discount">Price:${{book.discount}}</div>
+                <div class="price">Discount:<span>${{book.price}}</span></div>
+                <div>+ shipping from ₦ 230 to LEKKI-AJAH (SANGOTEDO)</div>
+                <div class="btn-wrapper">
+                    <button class="cart-btn">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <span>ADD TO CART</span>
+                    </button>
+                   <a class="update-wrapper" href="{% url 'book-update' book.id %}">
+                    <button class="update">Update</button>
+                   </a>
+                   <a  class="update-wrapper" href="{% url 'book-delete' book.id %}">
+                    <button style="background-color: red;margin-left:10px;" class="update">Delete</button>
+                   </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-description">
+        <h1>Product Description</h1>
+        <p>{{book.description}}</p>
+    </div>
+</div>  
+
+ 
+    
+{% endblock %}

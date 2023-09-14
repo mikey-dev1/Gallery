@@ -1,0 +1,27 @@
+
+{% extends 'ImageApp/index.html' %}
+   
+
+{% block content %}
+{% for data in name %}
+{% if data == 'ben' %}
+    <h1>hello, {{data}} </h1>
+ {% elif data == 'sara' %}
+     <h1>good afternoon, {{data}}</h1>
+ {% elif data == 'etim' %}
+     <h1>good evening, {{data}}</h1>
+ {% else %}
+     <h1>Hi {{data}}</h1>
+{% endif %}
+{% endfor %}
+
+{% for data in name reversed  %}
+ <li style="background-color:{% cycle 'blue' 'red' 'yellow' 'purple'%};">{{data}}</li>
+ 
+{% endfor %}
+
+
+{% comment %}
+<h1>Welcome ladies</h1>
+{% endcomment %}
+{% endblock %}

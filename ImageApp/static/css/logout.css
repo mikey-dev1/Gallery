@@ -1,0 +1,11 @@
+.container-logout{
+    padding: 10px 20px;
+}
+.container-logout p,.container-logout a{
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.container-logout .logout{
+    color: blue;
+    text-decoration: underline;
+}

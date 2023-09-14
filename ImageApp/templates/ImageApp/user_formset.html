@@ -1,0 +1,16 @@
+{% extends 'imageApp/index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/team_create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="form-wrapper">
+        <form class="team-form" action=""  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{formset.as_p}}
+          
+            <button class="submit" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

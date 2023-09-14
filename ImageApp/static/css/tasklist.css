@@ -1,0 +1,50 @@
+
+
+.table-wrapper{
+    min-height: 100vh;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+}
+table{
+    margin-top: 50px;
+    width: 70%;
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+tr:nth-child(even){
+   background-color: gray;
+}
+.headings{
+    background-color: #1d2a35;
+    color: white;
+}
+.status{
+    width: 25%;
+    padding: 10px;
+    text-align:center ;
+}
+
+
+.edit{
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+}
+.delete{
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+}
+th{
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 900;
+}
+#task-id,td,th{
+    text-align: center;
+}

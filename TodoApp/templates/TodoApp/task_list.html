@@ -1,0 +1,32 @@
+{% extends 'ImageApp/index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="table-wrapper">
+    
+    <table border="1"> 
+        <tr class="headings">
+            <th>Task Id</th>
+            <th>task Name</th>
+            <th>Task Description</th>
+            <th>Task Status</th>
+        </tr> 
+        {% for item in tasks %}
+        <tr>
+            <td id="task-id">{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}} lore</td>
+            <td class="status">
+                <a class="edit" href="{% url 'task-update' item.id %}">Edit</a>
+                <a class="delete" href="{% url 'task-delete' item.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+    
+{% endblock %}

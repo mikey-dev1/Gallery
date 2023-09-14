@@ -1,0 +1,42 @@
+{% extends 'ImageApp/index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/book-list.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="menu" id="menu">
+        <h1 class="heading">Meet the <span>Team</span></h1>
+        <div class="box-container">
+            {% for items in books %}
+           
+            <div class="box">
+                <a class="links" href="{% url 'book_detail' items.pk %}">
+                    <img src="{{ items.image.url }}" alt="">
+               
+                    <div class="card-container">
+                        <h2 id="book-title">{{items.title}}</h2>
+                        <p class="price">Discount: ${{items.discount}}</p>
+                        <p class="discount">Price: ${{items.price}}</p>
+                        <div class="ratings">
+                            <span>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </span>
+                            <span><a href="">(10 verified ratings)</a></span>
+                        </div>
+                        <p><button class="button">ADD TO CART</button></p>
+                    </div>
+                </a>
+            </div>
+            
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock%}
+

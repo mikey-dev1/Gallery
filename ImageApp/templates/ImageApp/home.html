@@ -1,0 +1,27 @@
+{% extends 'ImageApp/index.html' %}
+
+
+{% block content %}
+    <div class="menu" id="menu">
+        <h1 class="heading">Meet the <span>Team</span></h1>
+        <div class="box-container">
+            {% for items in data %}
+            <div class="box">
+                <img src="{{items.image.url}}" alt="">
+                <div class="card-container">
+                    <h2 class="user-name">{{items.name}}</h2>
+                    <p class="title">{{items.category}}</p>
+                    <p>
+                       {{items.description}}
+                    </p>
+                    <p class="email">{{items.email}}</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        
+    </div>
+{% endblock%}
+

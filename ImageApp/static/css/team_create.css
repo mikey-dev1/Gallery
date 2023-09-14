@@ -1,0 +1,60 @@
+.team-form{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: black;
+    padding: 20px;
+    width: 40%;
+    margin-top: 80px;
+   
+  
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-form p{
+    display: flex;
+    flex-direction: column;
+}
+
+.team-form h2{
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+label{
+    font-weight: 700;
+}
+input:focus{
+   border: transparent;
+   outline: solid blue 2px;
+  
+}
+.submit {
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+.submit:hover {
+    background-color: #45a049;
+  }
+
+@media screen and (max-width:800px) {
+    .team-form{
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        color: black;
+        padding: 20px;
+        width: 60%;
+        margin-top: 20px;
+      
+    }
+}

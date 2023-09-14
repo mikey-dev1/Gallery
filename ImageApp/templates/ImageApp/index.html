@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+     {% block head %}
+     {% endblock %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Nou</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="mobile--navigation" id="mobile--navigation">
+        <div class="mobile--navigation-header">
+            <img class="logo" src= "{% static 'images/barcalogo.svg.png' %}" alt="">
+            <div class="close--button">
+                <button onclick="ToggleMobileNavigation()"><i class="fa fa-close"></i></button>
+            </div>
+        </div>
+        <div class="mobile--navigation--items">
+            <a href="{% url 'home' %}" class="mobile--navigation--item">Home</a>
+            <a href="{% url 'book-create' %}" class="mobile--navigation--item">Post Books</a>
+            <a href="{% url 'book-list' %}" class="mobile--navigation--item">Books List</a>
+            <a href="{% url 'task-list' %}" class="mobile--navigation--item">Task list</a>
+            <a href="{% url 'create' %}" class="mobile--navigation--item">Create Team</a>
+            <a href="{% url 'task-create' %}" class="mobile--navigation--item">Create Task</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="{% static 'images/barcalogo.svg.png' %}" alt="">
+            <div class="navigation">
+                <!-- <a href="">hello {{user}}</a> -->
+                <a href="{% url 'home' %}" class="navigation--item">Home</a>
+                <a href="{% url 'book-create' %}" class="navigation--item">Post Books</a>
+                <a href="{% url 'book-list' %}" class="navigation--item">Books List</a>
+                <a href="{% url 'task-list' %}" class="navigation--item">Task list</a>
+                <a href="{% url 'create' %}" class="navigation--item">Create Team</a>
+                <a href="{% url 'task-create' %}" class="navigation--item">Create Task</a>
+            </div>
+            
+            <div class="menu--button">
+                <button onclick="ToggleMobileNavigation()"><i class="fa fa-reorder"></i></button>
+            </div>
+            <div class="user-card">
+                {% if user.is_authenticated %}
+                <div class="user">Hello,{{request.user}}!</div>
+                <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+                {% else %}
+                <a href="{% url 'login' %}"><button class="login">Login</button></a>
+                {% endif %}
+            </div>
+            <button class="navigation--button">Get started</button>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+<script>
+    var element = document.getElementById('mobile--navigation')
+    function ToggleMobileNavigation(){
+        if (element.classList.contains('mobile--navigation--open')){
+            element.classList.remove('mobile--navigation--open');
+        }
+        else{
+            element.classList.add('mobile--navigation--open');
+        }
+    }
+</script>
+</html>

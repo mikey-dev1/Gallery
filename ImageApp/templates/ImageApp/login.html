@@ -1,0 +1,40 @@
+{% extends 'ImageApp/index.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+<div class="body">
+    
+    <div class="container-login">
+        <div class="profile-items">
+            <i class="far fa-user-circle"></i>
+            <h1>Login</h1>
+            <p>Log In to Your CodeCamp Account!</p>
+        </div>
+        <form class="form" action="" method="POST">
+            {% csrf_token %}
+            <div class="form-items">
+                <div class="items">
+                    <i class="fas fa-envelope"></i>
+                    {{ form.username.errors }}
+                    {{form.username}}
+                </div>
+                <div class="items">
+                    <i class="fas fa-lock"></i>
+                    {{form.password}}
+                    {{ form.password.errors }}
+                </div>
+                <div class="submit">
+                    <button type="submit">Login</button>
+                </div>
+                
+                <div class="login">
+                    <p style="color: black;">Don't have an account?<a href="{% url 'signup' %}"> Sign Up.</a> <br> or <a href="{% url 'PasswordReset' %}">Forgot Password?</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
